@@ -8,9 +8,11 @@ import com.perrigogames.simplecalculator.databinding.ActivityCalculatorBinding
 class CalculatorActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityCalculatorBinding
+    private val mViewModel = CalculatorViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_calculator)
+        mBinding.viewModel = mViewModel
     }
 }

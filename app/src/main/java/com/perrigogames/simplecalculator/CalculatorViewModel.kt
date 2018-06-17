@@ -1,14 +1,23 @@
 package com.perrigogames.simplecalculator
 import android.databinding.ObservableBoolean
+import android.databinding.ObservableField
+import android.util.Log
 import android.view.View
+import android.widget.Button
 
 class CalculatorViewModel {
 
     private val math = MathModule()
 
+    val calculatorOutput = ObservableField("")
     val moduloChecked = ObservableBoolean(false)
 
     fun onButtonSelected(view: View) {
+
+        Log.v(javaClass.simpleName, "View: %s".format(view.id))
+        if (view is Button)
+            Log.v(javaClass.simpleName, "Button: %s".format(view.text))
+
         when (view.id) {
             R.id.btn0 -> math.digitSelected(0)
             R.id.btn1 -> math.digitSelected(1)
@@ -25,6 +34,8 @@ class CalculatorViewModel {
             R.id.btnPlus -> math.operatorSelected(Operator.ADD)
             R.id.btnMultiply -> math.operatorSelected(Operator.MULTIPLY)
             R.id.btnMinus -> math.operatorSelected(Operator.SUBTRACT)
+            R.id.btnClear -> math.clearDisplay()
         }
+        calculatorOutput.set(math.toString())
     }
 }
