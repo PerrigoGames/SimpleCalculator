@@ -76,6 +76,10 @@ class MathModule {
         lastKeyOperator = false
     }
 
+    fun clearDisplay() {
+        digits.clear()
+    }
+
     override fun toString(): String {
         val builder = StringBuilder()
         for (i in 0 until digits.size) {

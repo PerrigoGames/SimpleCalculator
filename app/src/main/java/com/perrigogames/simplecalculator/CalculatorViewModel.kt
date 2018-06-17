@@ -30,7 +30,7 @@ class CalculatorViewModel {
             R.id.btn8 -> math.digitSelected(8)
             R.id.btn9 -> math.digitSelected(9)
             R.id.btnEquals -> math.evaluate()
-            R.id.btnDivide -> math.operatorSelected(Operator.DIVIDE)
+            R.id.btnDivide -> math.operatorSelected(if (moduloChecked.get()) Operator.MODULO else Operator.DIVIDE)
             R.id.btnPlus -> math.operatorSelected(Operator.ADD)
             R.id.btnMultiply -> math.operatorSelected(Operator.MULTIPLY)
             R.id.btnMinus -> math.operatorSelected(Operator.SUBTRACT)
