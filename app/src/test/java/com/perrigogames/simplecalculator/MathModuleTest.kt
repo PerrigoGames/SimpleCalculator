@@ -58,6 +58,17 @@ class MathModuleTest {
         performOperationTest(3139, 25, Operator.MODULO, 14)
     }
 
+    @Test
+    fun arithmetic_chain() {
+        math.enterNumber(2500)
+        math.operatorSelected(Operator.ADD)
+        math.enterNumber(525)
+        math.operatorSelected(Operator.SUBTRACT)
+        math.enterNumber(1000)
+        math.evaluate()
+        assertEquals(math.toLong(), 2025)
+    }
+
     // Asserts the math module is currently displaying the specified number and operator
     private fun assertModuleContents(display: String, operator: Operator?) {
         assertEquals(display, math.toString())
